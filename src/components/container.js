@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { connect } from 'react-redux'
-import Phone from './Phone'
 import ShoppingCart from './ShoppingCart'
 import MyCart from './MyCart'
 import DisplayPhone from './DisplayPhone'

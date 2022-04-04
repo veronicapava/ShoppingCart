@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { DragSource, useDrag } from 'react-dnd';
+import { DragSource } from 'react-dnd';
 import { connect } from 'react-redux'
 import { moveIncart } from '../actions/phones'
 import { ItemTypes } from './Constants';
@@ -60,4 +60,4 @@ class Phone extends Component {
         )
     }
 }
-export default DragSource(ItemTypes.PHONE, phoneSpec, collect)(Phone);
+export default connect()(DragSource(ItemTypes.PHONE, phoneSpec, collect)(Phone)) 
