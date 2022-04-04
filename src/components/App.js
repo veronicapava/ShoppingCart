@@ -1,11 +1,30 @@
+import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { _getPhones } from '../utils/_DATA'
+import { receivePhones } from '../actions/phones'
+import Container from './Container'
 
 
-function App() {
-  return (
-    <div>
-      Hola mundo
-    </div>
-  );
+class App extends Component {
+  componentDidMount() {
+    _getPhones()
+      .then((phones) => {
+        this.props.dispatch(receivePhones(phones))
+      })
+  }
+  render() {
+    const { phones } = this.props
+
+    return (
+      <Container phones={phones} />
+    );
+  }
 }
 
-export default App;
+function mapStateToProps({ phones }) {
+  return {
+    phones
+  }
+}
+
+export default connect(mapStateToProps)(App);
